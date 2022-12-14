@@ -1,0 +1,103 @@
+#include <iostream>
+#include <string>
+using namespace std;
+#define fil 100
+#define col 3
+
+int leern(string msj,int limite1,int limite2)
+{
+	int x;
+	do
+	{
+		cout<<msj<<endl;
+		cin>>x;
+		
+	} while(x<=limite1 || x>=limite2);
+	
+	return x;
+}
+
+void leerdat_est(int n,string x[],int y[][col])
+{
+	int j,i;
+	for (i=0;i<n;i++)
+	{
+		cout<<"ingrese el nombre del estudiante"<<endl;
+		cin>>x[i];
+		for (j=0;j<col;j++)
+		{
+			cout<<"ingrese las notas"<<endl;
+			cin>>y[i][j];
+		}
+	}
+}
+
+void promedio(int n,int x[][col],float y[])
+{
+	int i,j;
+	for (i=0;i<n;i++)
+	{
+		y[i]=0;
+		for (j=0;j<col;j++)
+		{
+			y[i]=y[i]+x[i][j];
+		}
+			y[i]=y[i]/col;	
+	}
+}
+
+
+
+void listaest (int n,string est[],int x[][col],float y[])
+{
+	int j,i;
+	for (i=0;i<n;i++)
+	{
+		cout<<"\n El estudiante "<<n-1<<"obtuvo "<<est[i]<<endl;
+		for (j=0;j<col;j++)
+		{
+			cout<<"la nota "<<j+1<<"es "<<x[i][j]<<endl;;
+		}
+		
+		cout<<"el promedio es "<<y[i]<<endl;
+	}
+	
+}
+
+
+int main ()
+{
+	int nmenu,nest,notas[fil][col];
+	float prom[fil];
+	string est[fil];
+do{
+	
+	nmenu=leern("Menu:\n1.Ingresar # de estudiantes. \n2.Ingresar datos de estudiantes. \n3.Calcular promedio de estudiante. \n4.Buscar estudiante. \n5.Listar Estudiantes. \n6.Salir. ",0,6);
+	
+	switch (nmenu)
+	{
+		case 1:{
+			nest=leern("\nIngrese estudiantes:",0,fil);
+			break;
+		}
+		case 2:{
+			leerdat_est(nest,est,notas);
+			break;
+		}
+		case 3:{
+			promedio(nest,notas,prom);
+			break;
+		}
+		case 4:{
+			
+			break;
+		}
+		case 5:{
+			listaest(nest,est,notas,prom);
+			break;
+		}
+
+	}
+  }while(nmenu<6);
+	
+}
