@@ -1,0 +1,153 @@
+#include <iostream>
+using namespace std;
+
+#define max 50
+
+typedef char datos[50];
+
+int leern(string msj,int limitem, int limite)
+{
+	int n;
+	do
+	{
+		cout<<msj<<endl;
+		cin>>n;
+	} while ((n<limitem) || (n>limite));
+	return n;
+}
+
+struct facultad_struct{
+	datos codf;
+	datos nomf;
+};
+
+struct prof_struct{
+	datos codp;
+	datos nomp;
+	double salariop;
+	datos codfp;
+};
+
+facultad_struct fac[max];
+prof_struct prof[max];
+
+void leerstructf(facultad_struct fac[],int i){
+	cin.ignore();
+	int op;
+	int j=0;
+	cout<<"Ingrese el codigo de la facultad: ";
+	gets(fac[i].codf);	
+	do{
+	if(strcmp(fac[i].codf,fac[i+1-j].codf)==0){
+		cout<<"Ingrese un codigo de facultad no ingresado ya: ";
+		gets(fac[i].codf);
+	}	
+	j++;
+	}while (j<i+1);
+	j=0;
+	cout<<"ingrese el nombre de la facultad: ";	
+	gets(fac[i].nomf);
+	do{
+	if(strcmp(fac[i].nomf ,fac[i+1-j].nomf )==0){
+		cout<<"Ingrese un nombre de facultad no ingresado ya: ";
+		gets(fac[i].nomf);
+	}
+	j++;
+	}while (j<i+1);
+}
+
+void leerstructp(facultad_struct fac[], prof_struct prof[],int limit, int cont){
+	cin.ignore();
+	cout<<"Ingrese el codigo de la facultad del profesor: ";
+	gets(prof[cont].codfp);
+	if(strcmp(fac[cont].codf, prof[cont].codfp)==0){
+		cout<<"ingrese el codigo del profesor: ";
+		gets(prof[cont].codp);
+		int j=cont;
+		do{
+			if(strcmp(prof[cont].codp,prof[j-1].codp)==0){
+				cout<<"Ingrese un codigo de facultad no ingresado ya: ";
+				gets(prof[cont].codp);
+				j--;
+			}	
+		}while (j>0);
+		cout<<"ingrese el nombre del profesor: ";
+		gets(prof[cont].nomp);
+		cout<<"ingrese el salario del profesor: ";
+		cin>>prof[cont].salariop;
+		}
+	else cout<<"Esa facultad es inexistente. ";
+}
+
+void mostrar_fac(facultad_struct fac[],int limit){
+	cout<<"Facultad    Codigo\n";
+	for (int i=0;i<limit;i++){
+		cin.ignore();
+		cout<<fac[i].nomf<<"     "<<fac[i].codf<<"\n";
+	}
+}
+
+void mostrar_prof (prof_struct prof[],int cont){
+	cout<<"Profesor     Codigo     Salario     Codigo Facultad\n";
+	for (int i=0;i<cont;i++){
+		cin.ignore();
+		cout<<prof[i].nomp<<"     "<<prof[i].codp<<"     "<<prof[i].salariop<<"     "<<prof[i].codfp<<"\n";
+	}
+}
+
+void ordenacion(prof_struct prof[],int cont)
+{
+	int i,j,aux2;
+	datos aux[max];
+		for (i=0;i<cont<i++)
+		{
+			if (strcmp(prof[i].nomp,prof[i+1].nomp)<0)
+			{
+				aux=strcpy()
+			}
+		}
+	
+}
+
+
+int main(){
+	int op;
+	int i=0;
+	int cont=0;
+	do{	
+		op=leern("---MENU---\n1. Leer Facultades\n2. Leer profesores por facultad\n3. Mostrar Facultades\n4. Mostrar Profesores\n5. Salir\nIngrese una Opcion: ",1,5);
+		switch (op){
+			case 1:{
+				if(i<max){
+					leerstructf(fac,i); 
+					i++;	
+					break;
+				}
+				else cout<<"Numero maximo de facultades alcanzado. ";
+			}
+			case 2:{
+				leerstructp(fac,prof,i,cont);
+				cont++;	
+				break;
+			}
+			case 3:{
+				mostrar_fac(fac,i);
+				break;
+			}
+			case 4:{
+				mostrar_prof(prof,cont);
+				break;
+			}
+			case 5:{
+				cout<<"Muitas gracais :)";
+				break;
+			}
+			
+			default:{
+				cout<<"Opcion inexistente.";
+				break;
+			}
+		}
+	} while (op!=5);
+}
+
