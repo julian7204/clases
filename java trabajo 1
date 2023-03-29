@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+
+/**
+ *
+ * @author darck
+ */
+public class NewClass {
+
+    public static void main(String[] args) {
+                
+        Scanner s = new Scanner(System.in);
+        double p1,p2,p3,p4,p5,p6,total;
+        
+        System.out.print("Ingrese el valor de la primera persona: ");
+        p1 = s.nextDouble();
+        System.out.print("Ingrese el valor de la segunda persona: ");
+        p2 = s.nextDouble();
+        System.out.print("Ingrese el valor de la tercera persona: ");
+        p3 = s.nextDouble();
+        System.out.print("Ingrese el valor de la cuarta persona: ");
+        p4 = s.nextDouble();
+        System.out.print("Ingrese el valor de la sexta persona: ");
+        p5 = s.nextDouble();
+        System.out.print("Ingrese el valor de la sexta persona: ");
+        p6 = s.nextDouble();
+        
+        total = p1+p2+p3+p4+p5+p6;
+        
+        p1 = p1/total;
+        p2 = p2/total;
+        p3 = p3/total;
+        p4 = p4/total;
+        p5 = p5/total;
+        p6 = p6/total;
+        
+        p1 = p1*100;
+        p2 = p2*100;
+        p3 = p3*100;
+        p4 = p4*100;
+        p5 = p5*100;
+        p6 = p6*100;
+        
+                
+        System.out.printf("El valor total de la inversion es: %,.4f \n",total); 
+        
+        System.out.printf("El porcentaje de la primera inversion es: %,.2f \n",p1);     
+        System.out.printf("El porcentaje de la segunda inversion es: %,.2f \n",p2);     
+        System.out.printf("El porcentaje de la tercera inversion es: %,.2f \n",p3);     
+        System.out.printf("El porcentaje de la cuarta inversion es: %,.2f \n",p4);     
+        System.out.printf("El porcentaje de la quinta inversion es: %,.2f \n",p5);     
+        System.out.printf("El porcentaje de la sexta inversion es: %,.2f \n",p6);     
+       
+        
+        
+    }
+    
+}
